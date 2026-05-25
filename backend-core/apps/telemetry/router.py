@@ -1,17 +1,35 @@
 from fastapi import APIRouter
-from pydantic import BaseModel
+from apps.telemetry.services import TelemetryService
 
 router = APIRouter()
 
-class TelemetryData(BaseModel):
-    water_level: float
-    soil_moisture: float
-    temperature: float
+# Generate fake telemetry
+@router.get("/simulate")
+async def simulate_telemetry():
 
-@router.post("/")
-async def receive_telemetry(data: TelemetryData):
+    generated_data = TelemetryService.generate_dummy_data()
+
     return {
         "status": "success",
-        "message": "Telemetry received successfully",
-        "received_data": data.dict()
+        "message": "Telemetry simulated successfully",
+        "data": generated_data
+    }
+
+# Get latest telemetry
+@router.get("/latest")
+async def latest_telemetry():
+
+    return {
+        "status": "success",
+        "data": TelemetryService.get_latest_data()
+    }
+
+# Get telemetry history
+@router.get("/history")
+async def telemetry_history():
+
+    return {
+        "status": "success",
+        "count": len(TelemetryService.get_history()),
+        "data": TelemetryService.get_history()
     }
