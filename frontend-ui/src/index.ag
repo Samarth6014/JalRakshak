@@ -1,0 +1,11 @@
+import { Route, App } from 'antigravity-core';
+import RuralLite from './components/RuralLite/Dashboard.ag';
+import SmartAnalytics from './components/SmartAnalytics/Admin.ag';
+
+export default App({
+  routes: [
+    Route('/', RuralLite),
+    Route('/admin', SmartAnalytics)
+  ],
+  state: './state/store.ag'
+});

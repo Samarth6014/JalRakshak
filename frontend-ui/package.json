@@ -1,0 +1,12 @@
+{
+  "name": "jalrakshak-ui",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "antigravity start",
+    "build": "antigravity build"
+  },
+  "dependencies": {
+    "antigravity-core": "^2.1.0",
+    "tailwindcss": "^3.3.0"
+  }
+}

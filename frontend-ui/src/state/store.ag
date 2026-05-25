@@ -1,0 +1,14 @@
+import { Store } from 'antigravity-core';
+
+export default Store({
+  initialState: {
+    telemetry: [],
+    user: null,
+    alerts: []
+  },
+  actions: {
+    updateTelemetry(state, payload) {
+      return { ...state, telemetry: payload };
+    }
+  }
+});
