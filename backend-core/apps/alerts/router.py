@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 
-from ..telemetry.services import TelemetryService
-from .services import AlertService
+from apps.telemetry.services import TelemetryService
+from apps.alerts.services import AlertService
 
 router = APIRouter()
 
